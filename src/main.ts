@@ -1,10 +1,13 @@
-import './style.css'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import { setupSelect } from "./select.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+export const CURRENT_LANGUAGE = "pt-BR";
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
-   <h1>Hello World</h1>
+    <h1>Calendário</h1>
+    <select id="languages">
+    </select>
   </div>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupSelect(document.querySelector<HTMLSelectElement>("#languages")!);
