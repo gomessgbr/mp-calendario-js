@@ -72,3 +72,5 @@ export const languageCodes = [
   "az", // Azerbaijani
   "la", // Latin
 ];
+
+export const CURRENT_LANGUAGE = "pt-BR";

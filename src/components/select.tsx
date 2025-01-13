@@ -1,5 +1,5 @@
-import { languageCodes } from "./language-codes";
-import { CURRENT_LANGUAGE } from "./main";
+import { CURRENT_LANGUAGE, languageCodes } from "../utils/language-codes";
+
 
 export function setupSelect(select: HTMLSelectElement) {
   const currentValue = select!.value || "pt-BR";
