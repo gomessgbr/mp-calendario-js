@@ -6,14 +6,17 @@ export function CalendarSelect() {
   });
 
   return (
-    <select>
-      {languageCodes.map((language) => {
-        return (
-          <option key={language} value={language}>
-            {languageDisplay.of(language)}
-          </option>
-        );
-      })}
-    </select>
+    <div className="flex flex-col gap-1.5">
+      <span>Selecione uma linguagem</span>
+      <select className="text-neutral-800 bg-gray-700 rounded-sm border-2 border-gray-400 p-1">
+        {languageCodes.map((language) => {
+          return (
+            <option key={language} value={language} className="">
+              {languageDisplay.of(language)}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 }
