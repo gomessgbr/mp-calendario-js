@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from '@tailwindcss/vite'
 
 // export default defineConfig(() => {
 
@@ -13,7 +14,7 @@ import react from "@vitejs/plugin-react";
 
 // })
 export default defineConfig(() => ({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   test: {
     environment: "jsdom", // Define o ambiente do teste como jsdom
   },
