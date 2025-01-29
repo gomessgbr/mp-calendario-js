@@ -6,13 +6,15 @@ export function CalendarSelect() {
   });
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <span>Selecione uma linguagem</span>
-      <select className="text-neutral-800 bg-gray-700 rounded-sm border-2 border-gray-400 p-1">
+    <div className="grid max-w-fit gap-1.5">
+      <span className="text-sm font-normal">Selecione uma linguagem</span>
+      <select className="text-[#D1D5DB] font-normal text-sm bg-gray-700 rounded-sm border-2 border-gray-400 p-1">
         {languageCodes.map((language) => {
+          const languageLabel = languageDisplay.of(language)
+          const formatedLanguageLabel = languageLabel!.charAt(0).toUpperCase() + languageLabel!.slice(1)
           return (
-            <option key={language} value={language} className="">
-              {languageDisplay.of(language)}
+            <option key={language} value={language} >
+              {formatedLanguageLabel}
             </option>
           );
         })}
