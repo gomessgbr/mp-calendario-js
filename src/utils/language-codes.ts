@@ -73,4 +73,3 @@ export const languageCodes = [
   "la", // Latin
 ];
 
-export const CURRENT_LANGUAGE = "pt-BR";

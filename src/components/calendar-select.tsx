@@ -1,4 +1,5 @@
-import { CURRENT_LANGUAGE, languageCodes } from "../utils/language-codes";
+import { CURRENT_LANGUAGE } from "../utils/consts";
+import {  languageCodes } from "../utils/language-codes";
 
 export function CalendarSelect() {
   const languageDisplay = new Intl.DisplayNames([CURRENT_LANGUAGE], {

@@ -2,11 +2,10 @@ interface ICalendarHeaderProps {
   onNextMonth?: () => void;
   onPrevMonth?: () => void;
   currentMonth: string;
+  currentYear: string;
 }
 
-export function CalendarHeader({currentMonth}: ICalendarHeaderProps) {
-  
-  
+export function CalendarHeader({currentMonth, currentYear}: ICalendarHeaderProps) {
   return (
     <div className="grid grid-cols-3 items-center">
       <button className="p-1 justify-self-start">
@@ -27,7 +26,7 @@ export function CalendarHeader({currentMonth}: ICalendarHeaderProps) {
         </svg>
       </button>
 
-      <h3 className="text-base">{currentMonth.split(" ")[0]} <strong className="text-[#6EE7B7]">{currentMonth.split(" ")[1]}</strong></h3>
+      <h3 className="text-base">{currentMonth} <strong className="text-[#6EE7B7]">{currentYear}</strong></h3>
 
       <button className="p-1 justify-self-end ">
         <svg
