@@ -5,10 +5,10 @@ export function CalendarDays() {
   const { IsTheCurrentDate, monthDays } = useCalendarContext();
   const [days, setDays] = useState<string[]>([]);
 
-  
+
   const handleMonthDays = ()=>{
-    console.log("monthDays",monthDays);
-    const formatDays: Array<string> = [];
+  console.log("monthDays === ",monthDays);
+  const formatDays: Array<string> = [];
   monthDays.map((day)=>{
     day ? formatDays.push(day.getDate().toString()): '';
   })
@@ -17,15 +17,17 @@ export function CalendarDays() {
 }
   useEffect(() => {
     monthDays && handleMonthDays();
-  }, []);
-    
+  }, [monthDays]);
 
   console.log("days",days);
 
-  console.log()
   return (
-    <ul className="grid w-full grid-cols-7">
-      <li></li>
+    <ul className="grid px-10 py-5 w-full grid-cols-7">
+      {
+        days && days.map((day)=>(
+          <li>{day}</li>
+        ))
+      }
     </ul>
   );
 }

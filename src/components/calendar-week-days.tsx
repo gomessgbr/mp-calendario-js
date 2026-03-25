@@ -7,8 +7,6 @@ interface ICalendarWeekDaysProps {
 export function CalendarWeekDays({ currentDate }: ICalendarWeekDaysProps) {
   const {weekDays } = useCalendarContext();
 
- 
-
   return (
     <ul className="w-full flex gap-6 px-6">
       {!!weekDays &&
