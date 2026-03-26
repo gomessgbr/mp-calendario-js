@@ -8,6 +8,7 @@ interface CalendarContextType {
   currentMonth: string;
   currentYear: string;
   currentLanguage: string;
+  changeMonth: (direction: 'next' | 'prev')=>void;
 }
 
 export const CalendarContext = createContext<CalendarContextType>({} as CalendarContextType);
@@ -73,11 +74,35 @@ export const CalendarContextProvider = ({children}: PropsWithChildren)=>{
     return days;
   }
 
+  function changeMonth(direction: 'next' | 'prev'){
+    if(direction.includes('next')){
+      setCurrentMonth((month)=> month + 1);
+
+      if(currentMonth > 11){
+        setCurrentYear((year)=> year + 1);
+        setCurrentMonth(0);
+      }
+    }
+
+    if(direction.includes('prev')){
+      setCurrentMonth((month)=> month - 1);
+
+      if(currentMonth < 0){
+        setCurrentMonth(11);
+        setCurrentYear((year)=> year - 1);
+      }
+    }
+
+
+  }
+
+
   useEffect(() => {
       const startOfWeek = getStartOfWeek(currentDate);
       getWeekDays(startOfWeek);
       const daysInMonth = getDaysInMonth(currentMonth, currentYear);
       setMonthDays(daysInMonth);
+
     }, []);
 
   return(
@@ -87,6 +112,7 @@ export const CalendarContextProvider = ({children}: PropsWithChildren)=>{
         weekDays,
         monthDays,
         IsTheCurrentDate,
+        changeMonth,
         currentMonth: new Intl.DateTimeFormat("pt-BR", {
           month: "long",
         }).format(new Date()),

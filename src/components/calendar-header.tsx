@@ -1,3 +1,5 @@
+import { useCalendarContext } from "../contexts/useCalendarContext";
+
 interface ICalendarHeaderProps {
   onNextMonth?: () => void;
   onPrevMonth?: () => void;
@@ -6,9 +8,14 @@ interface ICalendarHeaderProps {
 }
 
 export function CalendarHeader({currentMonth, currentYear}: ICalendarHeaderProps) {
+  const {changeMonth, currentMonth : month} = useCalendarContext();
+
+  console.log("month ===", month);
   return (
     <div className="grid grid-cols-3 items-center">
-      <button className="p-1 justify-self-start">
+      <button className="p-1 justify-self-start" onClick={ ()=>{
+        changeMonth('prev')
+      }}>
         <svg
           stroke="currentColor"
           fill="currentColor"
@@ -28,7 +35,9 @@ export function CalendarHeader({currentMonth, currentYear}: ICalendarHeaderProps
 
       <h3 className="text-base">{currentMonth} <strong className="text-[#6EE7B7]">{currentYear}</strong></h3>
 
-      <button className="p-1 justify-self-end ">
+      <button className="p-1 justify-self-end" onClick={()=> {
+        changeMonth('next')
+      }}>
         <svg
           stroke="currentColor"
           fill="currentColor"

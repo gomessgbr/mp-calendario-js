@@ -15,11 +15,12 @@ export function CalendarDays() {
   console.log("formatDays",formatDays);
   setDays(formatDays);
 }
+
   useEffect(() => {
     monthDays && handleMonthDays();
   }, [monthDays]);
 
-  console.log("days",days);
+
 
   return (
     <ul className="grid px-10 py-5 w-full grid-cols-7">
