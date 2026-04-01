@@ -1,10 +1,7 @@
 
 import { useCalendarContext } from "../contexts/useCalendarContext";
 
-interface ICalendarWeekDaysProps {
-  currentDate: Date;
-}
-export function CalendarWeekDays({ currentDate }: ICalendarWeekDaysProps) {
+export function CalendarWeekDays() {
   const {weekDays } = useCalendarContext();
 
   return (

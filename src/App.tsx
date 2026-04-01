@@ -3,6 +3,7 @@ import { CalendarSelect } from "./components/calendar-select";
 import { CalendarContextProvider } from "./contexts/useCalendarContext";
 
 export function App() {
+
   return (
     <CalendarContextProvider>
     <div className="min-h-screen flex flex-col gap-20 justify-center items-center">
