@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useCalendarContext } from "../contexts/useCalendarContext";
 
 export function CalendarDays() {
-  const { IsTheCurrentDate, monthDays } = useCalendarContext();
+  const { monthDays } = useCalendarContext();
   const [days, setDays] = useState<string[]>([]);
 
 
@@ -25,8 +25,8 @@ export function CalendarDays() {
   return (
     <ul className="grid px-10 py-5 w-full grid-cols-7">
       {
-        days && days.map((day)=>(
-          <li>{day}</li>
+        days && days.map((day, index)=>(
+          <li key={index}>{day}</li>
         ))
       }
     </ul>
